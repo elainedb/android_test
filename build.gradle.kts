@@ -9,6 +9,9 @@ sonar {
     properties {
         property("sonar.projectKey", "elainedb_android_test")
         property("sonar.organization", "elainedb")
+        property("sonar.coverage.jacoco.xmlReportPaths", "app/build/reports/jacoco/JacocoDebugCodeCoverage/JacocoDebugCodeCoverage.xml")
+        property("sonar.junit.reportPaths", "app/build/test-results/testDebugUnitTest")
+        property("sonar.android.lint.reportPaths", "app/build/reports/lint-results.xml")
     }
 }
 
