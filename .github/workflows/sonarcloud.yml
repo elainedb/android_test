@@ -43,6 +43,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: JaCoCo
+        run: ./gradlew test jacocoTestReport
       - name: Analyze with SonarCloud
 
         # You can pin the exact commit or the version.
