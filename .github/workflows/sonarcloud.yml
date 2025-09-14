@@ -48,7 +48,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
       - name: JaCoCo
-        run: ./gradlew test jacocoTestReport
+        run: ./gradlew :app:testDebugUnitTest :app:JacocoDebugCodeCoverage
       - name: Analyze with SonarCloud
 
         # You can pin the exact commit or the version.
