@@ -43,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
       - name: JaCoCo
