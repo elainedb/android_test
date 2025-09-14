@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
     id("org.sonarqube") version "6.3.1.5724"
-    id "jacoco"
+    id("jacoco")
 }
 
 sonar {
@@ -13,8 +13,9 @@ sonar {
     }
 }
 
-jacocoTestReport {
-    reports {
-        xml.required = true
-    }
+tasks.register("jacocoTestReport") {
+    dependsOn(":app:jacocoTestReport")
+    group = "verification"
+    description = "Generate Jacoco coverage reports for all modules"
 }
+
