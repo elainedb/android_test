@@ -97,8 +97,9 @@ android {
                 }
             ))
             executionData.setFrom(files(
-                fileTree(layout.buildDirectory.dir("jacoco")) {
-                    include("test${variant}UnitTest.exec")
+                fileTree(layout.buildDirectory) {
+                    include("jacoco/test${variant}UnitTest.exec")
+                    include("outputs/unit_test_code_coverage/${variant.lowercase()}UnitTest/test${variant}UnitTest.exec")
                 }
             ))
         }
