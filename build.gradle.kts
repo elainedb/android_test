@@ -12,6 +12,28 @@ sonar {
         property("sonar.coverage.jacoco.xmlReportPaths", "app/build/reports/jacoco/JacocoDebugCodeCoverage/JacocoDebugCodeCoverage.xml")
         property("sonar.junit.reportPaths", "app/build/test-results/testDebugUnitTest")
         property("sonar.android.lint.reportPaths", "app/build/reports/lint-results.xml")
+
+        // Exclude test files from coverage analysis
+        property("sonar.coverage.exclusions",
+            "**/test/**," +
+            "**/androidTest/**," +
+            "**/*Test*," +
+            "**/*test*," +
+            "**/*.Test," +
+            "**/src/test/**/*," +
+            "**/src/androidTest/**/*"
+        )
+
+        // Also exclude test files from duplication analysis
+        property("sonar.cpd.exclusions",
+            "**/test/**," +
+            "**/androidTest/**," +
+            "**/*Test*"
+        )
+
+        // Exclude test sources from analysis entirely
+        property("sonar.sources", "app/src/main")
+        property("sonar.tests", "app/src/test,app/src/androidTest")
     }
 }
 
